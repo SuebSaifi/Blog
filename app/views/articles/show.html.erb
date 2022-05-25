@@ -1,0 +1,16 @@
+<h1><%= @article.title%></h1>
+<p><%=@article.body%></p>
+
+<ul>
+<%= link_to 'Edit', edit_article_path(@article) %>
+<%= link_to "Destroy" ,article_path(@article),
+method: :delete,
+data: { confirm: 'Are you sure?' }
+%>
+</ul><br><br>
+<h3>Total Comments:<%= Comment.public_count %> </h3>
+<h2>Comments:</h2>
+<%= render @article.comments%>
+
+<h2>Add a Comment:</h2>
+<%= render 'comments/form'%>
